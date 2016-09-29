@@ -109,6 +109,10 @@ NeoBundle 'hail2u/vim-css3-syntax' " CSS3を補完
 NeoBundle 'mattn/emmet-vim' " emmet
 NeoBundle 'jelera/vim-javascript-syntax' " jsのシンタックスを追加
 NeoBundle 'jpo/vim-railscasts-theme' " カラースキーマ
+NeoBundle 'plasticboy/vim-markdown' " Markdownシンタックスハイライト
+NeoBundle 'kannokanno/previm' " Markdownプレビュー
+NeoBundle 'tyru/open-browser.vim' " Markdownブラウザオープン
+NeoBundle 'dhruvasagar/vim-table-mode' " Markdownテーブルプラグイン
 
 call neobundle#end()
 
@@ -129,3 +133,11 @@ nnoremap <silent><C-t> :NERDTreeToggle
 " http://cocopon.me/app/vim-color-gallery/index.html?welcome=1
 " ###############################
 colorscheme RailsCasts
+
+" ##############################
+" Markdown オプション
+" #############################
+let g:vim_markdown_folding_disabled = 1
+au BufRead,BufNewFile *.md set filetype=markdown
+let g:table_mode_corner="|" 
+nnoremap <silent><C-p> :PrevimOpen
