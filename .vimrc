@@ -35,6 +35,7 @@ augroup MyXML
     autocmd!
     autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
     autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+    autocmd Filetype tpl inoremap <buffer> </ </<C-x><C-o>
 augroup END
 " 各種括弧補完
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
@@ -50,6 +51,21 @@ set smartcase "検索文字列に大文字が含まれている場合は区別�
 set wrapscan "検索時に最後まで行ったら最初に戻る
 set noincsearch "検索文字列入力時に順次対象文字列にヒットさせない
 set nohlsearch "検索結果文字列の非ハイライト表示
+
+" クリップボードからペーストする際に自動インデントをOFFにする
+if &term =~ "xterm"
+    let &t_SI .= "\e[?2004h"
+    let &t_EI .= "\e[?2004l"
+    let &pastetoggle = "\e[201~"
+
+    function XTermPasteBegin(ret)
+        set paste
+        return a:ret
+    endfunction
+
+    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
+
 
 "#######################
 " PHP
@@ -230,3 +246,6 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " #############################
 
 let g:neocomplete_php_locale = 'ja'
+
+" 起動時にNERDTree
+autocmd vimenter * NERDTree
