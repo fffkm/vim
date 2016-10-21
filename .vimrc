@@ -130,6 +130,7 @@ NeoBundle 'plasticboy/vim-markdown' " Markdownシンタックスハイライト
 NeoBundle 'kannokanno/previm' " Markdownプレビュー
 NeoBundle 'tyru/open-browser.vim' " Markdownブラウザオープン
 NeoBundle 'dhruvasagar/vim-table-mode' " Markdownテーブルプラグイン
+NeoBundle 'PDV--phpDocumentor-for-Vim' " PHPDoc
 
 call neobundle#end()
 
@@ -248,4 +249,9 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 let g:neocomplete_php_locale = 'ja'
 
 " 起動時にNERDTree
-autocmd vimenter * NERDTree
+ autocmd vimenter * NERDTree
+
+" PHPDoc キーバインド
+inoremap <C-P> <Esc>:call PhpDocSingle()<CR>i
+nnoremap <C-P> :call PhpDocSingle()<CR>
+vnoremap <C-P> :call PhpDocSingle()<CR>
