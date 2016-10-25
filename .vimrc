@@ -131,6 +131,8 @@ NeoBundle 'kannokanno/previm' " Markdownプレビュー
 NeoBundle 'tyru/open-browser.vim' " Markdownブラウザオープン
 NeoBundle 'dhruvasagar/vim-table-mode' " Markdownテーブルプラグイン
 NeoBundle 'PDV--phpDocumentor-for-Vim' " PHPDoc
+NeoBundle 'soramugi/auto-ctags.vim' " ctags mac => brew install ctags 
+NeoBundle 'szw/vim-tags' " tagの自動作成　:TagsGenerate
 
 call neobundle#end()
 
